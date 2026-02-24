@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Case Agent Pack — LiquidSMARTS™</title>
+  <meta name="description" content="Six AI agents. One prompt. A complete, monetized business case for any deal. Free resource from LiquidSMARTS™ Commercial Engineering.">
+  <meta property="og:title" content="Business Case Agent Pack — LiquidSMARTS™">
+  <meta property="og:description" content="Give your champion the financial argument. Six AI agents produce a complete business case — narrative, gain matrix, CFO stress-test — in any LLM.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #000000;
+      --blue:    #5BC2E7;
+      --white:   #ffffff;
+      --gray:    #888888;
+      --gray-lt: #bbbbbb;
+      --surface: #111111;
+      --border:  #1e1e1e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo span { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue);
+      color: var(--black);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 6rem 2rem 5rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      color: var(--blue);
+      font-style: normal;
+    }
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--gray-lt);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--black);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 5px;
+      border: 1px solid #333;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--blue); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .section-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .section-body {
+      color: var(--gray-lt);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin-bottom: 3rem;
+      line-height: 1.75;
+    }
+
+    /* ── PROBLEM QUOTE ── */
+    .cfq-block {
+      background: var(--surface);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 6px 6px 0;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0 3rem;
+    }
+    .cfq-block p {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .cfq-block span {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    /* ── AGENT GRID ── */
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .agent-card {
+      background: var(--surface);
+      padding: 1.75rem;
+    }
+    .agent-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    .agent-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .agent-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1;
+      padding-top: 0.2rem;
+    }
+    .step-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .step-body {
+      font-size: 0.95rem;
+      color: var(--gray-lt);
+      line-height: 1.65;
+    }
+    .step-body code {
+      background: #1a1a1a;
+      color: var(--blue);
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+      font-size: 0.85em;
+    }
+
+    /* ── INCLUDED ── */
+    .file-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .file-list li {
+      background: var(--surface);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .file-list li:last-child { border-bottom: none; }
+    .file-icon {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+      background: rgba(91,194,231,0.1);
+      padding: 0.2rem 0.45rem;
+      border-radius: 3px;
+      white-space: nowrap;
+      margin-top: 0.15rem;
+    }
+    .file-info strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.15rem;
+    }
+    .file-info span {
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+
+    /* ── EXTENSIONS ── */
+    .ext-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .ext-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+    }
+    .ext-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    .ext-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .ext-desc {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+    .cta-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+    .cta-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .cta-body {
+      color: var(--gray-lt);
+      font-size: 0.975rem;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+      max-width: 460px;
+    }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-width: 200px;
+    }
+    .cta-email {
+      display: block;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--gray);
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+    .cta-email:hover { color: var(--blue); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .cta-box {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+      }
+      .hero-actions { flex-direction: column; }
+      .hero-actions a { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="https://liquidsmarts.com">LIQUID<span>SMARTS</span>™</a>
+    <a class="nav-cta" href="#download">Download Free</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-tag">Free Resource &nbsp;·&nbsp; AI Prompt Pack</p>
+    <h1>Give your champion<br>the <em>financial argument.</em></h1>
+    <p class="hero-lead">Six AI agents. One prompt. A complete, monetized business case for any deal — narrative, gain matrix, and CFO stress-test included. Paste into any LLM. No setup required.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#download">Download Free</a>
+      <a class="btn-secondary" href="#how-it-works">See how it works</a>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PROBLEM -->
+  <section>
+    <p class="section-label">The Problem</p>
+    <h2 class="section-heading">Most deals don't die because the product lacks value.</h2>
+    <p class="section-body">They die because the champion can't answer the CFO's first question.</p>
+
+    <div class="cfq-block">
+      <p>"What is this costing us today if we do nothing?"</p>
+      <span>— Every CFO. Every committee meeting.</span>
+    </div>
+
+    <p class="section-body">Clinical champions believe in the solution. They describe workflow improvements and clinical outcomes. The committee hears "nice to have." No one on the buying side has a dollar figure attached to the problem the solution actually solves.</p>
+    <p class="section-body" style="margin-bottom:0;">This pack gives them one.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHAT IT PRODUCES -->
+  <section>
+    <p class="section-label">What It Produces</p>
+    <h2 class="section-heading">Six agents. One complete case.</h2>
+    <p class="section-body">Each agent completes its work in full before the next begins. The output is 1,200–1,800 words — ready to use as the backbone of any proposal or committee presentation.</p>
+
+    <div class="agent-grid">
+      <div class="agent-card">
+        <div class="agent-num">AGENT 01</div>
+        <div class="agent-name">Situation Analyst</div>
+        <p class="agent-desc">3–5 measurable deficits the prospect has today, each stated as a gap with a root cause.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-num">AGENT 02</div>
+        <div class="agent-name">Deficit Monetizer</div>
+        <p class="agent-desc">Annual dollar cost of each deficit, with math shown step by step and every assumption flagged.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-num">AGENT 03</div>
+        <div class="agent-name">Solution Mapper</div>
+        <p class="agent-desc">Ties solution gains to each deficit. Cites proof points. Calculates annual value recovered.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-num">AGENT 04</div>
+        <div class="agent-name">Case Writer</div>
+        <p class="agent-desc">400-word narrative written for the economic buyer. Financial language. No jargon. Ready to send.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-num">AGENT 05</div>
+        <div class="agent-name">Model Builder</div>
+        <p class="agent-desc">The gain matrix table: every deficit, every gain, every dollar figure. One payback period. 3-year value.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-num">AGENT 06</div>
+        <div class="agent-name">CFO Reviewer</div>
+        <p class="agent-desc">Reads the model as a skeptical CFO. Surfaces the weakest assumptions before committee does.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-heading">Three steps. No integration.</h2>
+    <p class="section-body">Works in any LLM you already use — ChatGPT, Claude, Gemini, Grok, or Copilot. Free tier accounts are fine.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Fill in your context</div>
+          <p class="step-body">Open <code>00_your_context.md</code>. Fill in Layer A once — your company, product, and top proof points. Fill in Layer B for each deal: five fields, five minutes.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Paste into your LLM</div>
+          <p class="step-body">Open <code>01_master_agent.md</code>. Copy the entire file. Start a new conversation in your LLM of choice. Paste, insert your filled context where indicated, and send.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Review Agent 6 first</div>
+          <p class="step-body">Before you present or share anything, read what Agent 6 flagged. Fix every Illustrative-confidence row before the business case goes to committee. Then use Agents 4 and 5 as your deliverables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHAT'S INCLUDED -->
+  <section>
+    <p class="section-label">What's Included</p>
+    <h2 class="section-heading">Nine files. Ready to use.</h2>
+
+    <ul class="file-list">
+      <li>
+        <span class="file-icon">GUIDE</span>
+        <div class="file-info">
+          <strong>GUIDE.md</strong>
+          <span>Full user guide — setup, column definitions, confidence level guide, FAQ. Start here if you're new.</span>
+        </div>
+      </li>
+      <li>
+        <span class="file-icon">CTX</span>
+        <div class="file-info">
+          <strong>00_your_context.md</strong>
+          <span>Layer A: fill once. Layer B: five fields per deal.</span>
+        </div>
+      </li>
+      <li>
+        <span class="file-icon">MAIN</span>
+        <div class="file-info">
+          <strong>01_master_agent.md</strong>
+          <span>The six-agent sequential prompt. Paste into any LLM.</span>
+        </div>
+      </li>
+    </ul>
+
+    <p class="section-label" style="margin-top:2rem;">Four Extension Prompts</p>
+    <div class="ext-grid">
+      <div class="ext-card">
+        <div class="ext-num">02</div>
+        <div class="ext-name">Deep Research</div>
+        <p class="ext-desc">Industry trends, competitor weaknesses, analogous ROI cases.</p>
+      </div>
+      <div class="ext-card">
+        <div class="ext-num">03</div>
+        <div class="ext-name">Stakeholder Map</div>
+        <p class="ext-desc">Per-buyer profiles, committee questions, champion's 90-second pitch.</p>
+      </div>
+      <div class="ext-card">
+        <div class="ext-num">04</div>
+        <div class="ext-name">CFO Challenge</div>
+        <p class="ext-desc">Adversarial stress-test at 50% gains. What makes it bulletproof.</p>
+      </div>
+      <div class="ext-card">
+        <div class="ext-num">05</div>
+        <div class="ext-name">Champion Toolkit</div>
+        <p class="ext-desc">Leave-behind, hallway talking points, budget objection script.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CTA -->
+  <div class="cta-section" id="download">
+    <div class="cta-box">
+      <div>
+        <div class="cta-eyebrow">Get the Pack</div>
+        <h2 class="cta-heading">The structure is free.<br>The judgment isn't.</h2>
+        <p class="cta-body">The pack gives you the framework. Most teams who use it seriously — the ones preparing for board-level committee reviews, the ones with a real deal in the balance — find they want a thought partner who has run this analysis on hundreds of deals and knows where the numbers will get challenged.</p>
+        <p class="cta-body" style="margin-bottom:0;">Download the pack and run a deal through it. Then reach out. That conversation is free too.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn-primary" href="https://github.com/GunterWessels/liquidsmarts-tools/releases/latest/download/business-case-agent-pack.zip">Download Free</a>
+        <a class="btn-secondary" href="https://app.usemotion.com/meet/gunter-wessels/rsk2n7s" target="_blank" rel="noopener">Schedule a Call</a>
+        <a class="cta-email" href="mailto:gunter@liquidsmarts.com">gunter@liquidsmarts.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <a href="https://liquidsmarts.com">LiquidSMARTS™</a>. All rights reserved. &nbsp;|&nbsp; <a href="/">All Tools</a> &nbsp;|&nbsp; <a href="mailto:gunter@liquidsmarts.com">gunter@liquidsmarts.com</a></p>
+  </footer>
+
+</body>
+</html>

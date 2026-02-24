@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiquidSMARTS™ Tools</title>
+  <meta name="description" content="Free commercial engineering tools from LiquidSMARTS™. Built for medtech reps, consultants, and sales leaders.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000;
+      --blue: #5BC2E7;
+      --white: #ffffff;
+      --gray: #999999;
+      --surface: #111111;
+    }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      min-height: 100vh;
+    }
+    header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo span { color: var(--blue); }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .subtitle {
+      color: var(--gray);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      max-width: 560px;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 2rem;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tool-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .tool-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+    .tool-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .tool-desc {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    footer {
+      border-top: 1px solid #1a1a1a;
+      padding: 2rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="https://liquidsmarts.com">LIQUID<span>SMARTS</span>™</a>
+  </header>
+  <main>
+    <h1>Free Tools</h1>
+    <p class="subtitle">Commercial engineering resources for medtech reps, consultants, and sales leaders. Free to use. Built from real engagements.</p>
+    <div class="tools-grid">
+      <a class="tool-card" href="/business-case-agent-pack/">
+        <div class="tool-tag">AI Prompt Pack</div>
+        <div class="tool-name">Business Case Agent Pack</div>
+        <p class="tool-desc">Six AI agents. One prompt. A complete monetized business case for any deal — works in ChatGPT, Claude, Gemini, Grok, or Copilot.</p>
+      </a>
+    </div>
+  </main>
+  <footer>
+    <p>© 2026 LiquidSMARTS™. All rights reserved. &nbsp;|&nbsp; <a href="mailto:gunter@liquidsmarts.com">gunter@liquidsmarts.com</a> &nbsp;|&nbsp; <a href="https://liquidsmarts.com">liquidsmarts.com</a></p>
+  </footer>
+</body>
+</html>
